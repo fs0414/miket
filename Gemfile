@@ -12,7 +12,9 @@ gem "sprockets-rails"
 gem "pg", "~> 1.5.6"
 
 # Use the Puma web server [https://github.com/puma/puma]
+# servers
 gem "puma", ">= 5.0"
+gem 'foreman'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -36,7 +38,7 @@ gem "redis", ">= 4.0.1"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1.7v"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data"
@@ -47,9 +49,12 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# authentication
 gem 'sorcery'
 
-gem 'foreman'
+# linter
+gem 'erb_lint', require: false
+gem 'rubocop', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
