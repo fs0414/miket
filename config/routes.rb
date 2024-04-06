@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get '/auth', to: 'auth#new'
   post '/auth', to: 'auth#create'
 
-  get '/items', to: 
+  # get '/items', to: 
 end

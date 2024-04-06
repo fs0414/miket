@@ -4,12 +4,19 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
-        if @user.save
-            redirect_to auth_path, status: ok
-        else
-            render :new, status: :bad_request
+        ActiveRecord::Base.transaction do
+            user = User.create!(user_params)
+            Category.create!([
+                { name: "goods", user_id: user.id },
+                { name: "furniture", user_id: user.id },
+                { name: "fashion", user_id: user.id }
+            ])
         end
+
+        redirect_to auth_path
+
+        rescue => e
+            render :new
     end
 
     private
